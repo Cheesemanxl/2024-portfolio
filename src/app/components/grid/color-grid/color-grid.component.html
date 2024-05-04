@@ -1,0 +1,16 @@
+<div class="main">
+  <div class="action-bar">
+    <app-color-picker></app-color-picker>
+    <button
+      mat-raised-button
+      color="accent"
+      class="clear-button"
+      (click)="clearGrid()">
+      Clear
+    </button>
+  </div>
+  <div class="grid-frame">
+    <app-grid-column *ngFor="let element of cellService.cells">
+    </app-grid-column>
+  </div>
+</div>

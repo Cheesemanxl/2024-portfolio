@@ -1,0 +1,9 @@
+<div class="container">
+  <h2 class="color-title">Colors:</h2>
+  <div
+    class="color-option"
+    *ngFor="let color of colors"
+    (click)="onOptionClicked($event, color)"
+    [style]='"background-color: " + color'>
+  </div>
+</div>
