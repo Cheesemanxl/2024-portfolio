@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { GridColumnComponent } from './grid-column/grid-column.component';
 import { ColorPickerComponent } from './color-picker/color-picker.component';
-import { GridService } from '../../../services/grid/grid.service';
+import { GridService } from '../../services/grid/grid.service';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({

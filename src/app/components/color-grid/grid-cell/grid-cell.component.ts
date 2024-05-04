@@ -1,4 +1,4 @@
-import { GridService } from '../../../../services/grid/grid.service';
+import { GridService } from '../../../services/grid/grid.service';
 import { Component } from '@angular/core';
 
 @Component({
