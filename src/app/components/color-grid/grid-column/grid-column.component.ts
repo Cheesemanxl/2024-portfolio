@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GridService } from '../../../../services/grid/grid.service';
+import { GridService } from '../../../services/grid/grid.service';
 import { GridCellComponent } from '../grid-cell/grid-cell.component';
 
 @Component({

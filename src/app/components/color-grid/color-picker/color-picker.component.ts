@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GridService } from '../../../../services/grid/grid.service';
+import { GridService } from '../../../services/grid/grid.service';
 
 @Component({
   selector: 'app-color-picker',
