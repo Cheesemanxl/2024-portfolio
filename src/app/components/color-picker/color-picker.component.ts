@@ -7,7 +7,7 @@ import { GridService } from '../../services/grid/grid.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './color-picker.component.html',
-  styleUrl: './color-picker.component.css'
+  styleUrl: './color-picker.component.scss'
 })
 export class ColorPickerComponent {
   colors: string[] = [

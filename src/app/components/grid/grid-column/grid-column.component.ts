@@ -11,7 +11,7 @@ import { GridCellComponent } from '../grid-cell/grid-cell.component';
     CommonModule
   ],
   templateUrl: './grid-column.component.html',
-  styleUrl: './grid-column.component.css'
+  styleUrl: './grid-column.component.scss'
 })
 export class GridColumnComponent {
 
