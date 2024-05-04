@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.color-option {
+  height: 30px;
+  width: 30px;
+  border: 2px solid rgb(64, 64, 64);
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.selected-option {
+  border-width: 5px !important;
+}
+.color-title {
+  margin: 0px;
+}
