@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './grid-cell.component.html',
-  styleUrl: './grid-cell.component.css'
+  styleUrl: './grid-cell.component.scss'
 })
 export class GridCellComponent {
 
