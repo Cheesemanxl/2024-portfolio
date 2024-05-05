@@ -8,7 +8,7 @@ export class GridService {
   gridSize: number = 25;
   cells: number[] = Array(this.gridSize).fill(0);
   color: string = 'white';
-  backgroundColor: string = '#181818';
+  backgroundColor: string = '#101010';
   leftDragging: boolean = false;
   rightDragging: boolean = false;
 
