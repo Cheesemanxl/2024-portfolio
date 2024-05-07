@@ -1,8 +1,14 @@
 <div class="planner-content">
   <div class="category-panel" *ngFor="let category of categories; index as i;">
     <span class="category-title">{{category.title}}</span>
-    <div class="task-box">
-
-    </div>
+    <hr class="divider">
+    <div class="task-box"></div>
+  </div>
+  <div class="add-category-button" (click)="addCategory()">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Add category icon"
+      fontIcon="add"
+      class="add-icon"></mat-icon>
   </div>
 </div>

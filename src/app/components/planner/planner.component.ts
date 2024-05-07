@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface Task {
   title: string;
@@ -14,7 +15,10 @@ export interface Category {
 @Component({
   selector: 'app-planner',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatIconModule
+  ],
   templateUrl: './planner.component.html',
   styleUrl: './planner.component.scss'
 })
@@ -33,4 +37,8 @@ export class PlannerComponent {
       tasks: []
     },
   ];
+
+  addCategory(): void {
+    this.categories.push({title: '', tasks: []});
+  }
 }
