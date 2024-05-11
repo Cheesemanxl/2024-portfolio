@@ -1,14 +1,45 @@
 <div class="planner-content">
-  <div class="category-panel" *ngFor="let category of categories; index as i;">
-    <span class="category-title">{{category.title}}</span>
-    <hr class="divider">
-    <div class="task-box"></div>
-  </div>
-  <div class="add-category-button" (click)="addCategory()">
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Add category icon"
-      fontIcon="add"
-      class="add-icon"></mat-icon>
+  <div class="scrollable-content">
+    <div
+      class="category-panel"
+      *ngFor="let category of categories; index as categoryIndex"
+    >
+      <input
+        class="category-title"
+        [value]="category.title"
+        (change)="onTitleInputChange(category, $event)"
+      />
+      <hr class="divider" />
+      <div class="task-box">
+        <span
+          class="task"
+          *ngFor="let task of category.tasks; index as taskIndex"
+        >
+          <p class="task-title">{{ task.title }}</p>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Edit task icon"
+            fontIcon="edit"
+            class="edit-task-icon"
+          ></mat-icon>
+        </span>
+        <div class="add-task-button" (click)="addTask(category)">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Add task icon"
+            fontIcon="add"
+            class="add-task-icon"
+          ></mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="add-category-button" (click)="addCategory()">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Add category icon"
+        fontIcon="add"
+        class="add-category-icon"
+      ></mat-icon>
+    </div>
   </div>
 </div>

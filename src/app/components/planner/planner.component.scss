@@ -2,8 +2,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  margin: auto;
+  max-width: 100vw;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-color: #303030 #606060;
+  scrollbar-width: auto;
+}
+.scrollable-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
 }
 .category-panel {
   display: flex;
@@ -11,27 +20,66 @@
   align-items: center;
   background-color: #202020;
   border-radius: 15px;
-  width: 270px;
+  min-width: 300px;
   height: 80vh;
   margin: 2vh 10px;
 }
 .category-title {
   display: flex;
   margin: 15px 10px 0px 10px;
-  padding: 0px 5px;
+  padding: 0px;
   border-radius: 10px;
+  border-bottom: 0;
+  border-right: 0;
   background-color: #353535;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   color: #eeeeee;
   min-width: 90%;
   height: 40px;
-  font-size: x-large;
+  font-size: large;
   text-wrap: nowrap;
 }
 .divider {
-  width: 90%;
+  width: 80%;
   border-color: #cccccc;
+}
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #353535;
+  border-radius: 10px;
+  margin: 3px 0px 9px 0px;
+  max-width: 280px;
+}
+.task-title {
+  color: #eeeeee;
+  white-space: wrap;
+  font-size: large;
+  margin: 10px 10px;
+  max-width: 80%
+}
+.edit-task-icon {
+  color: #cccccc;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.add-task-icon {
+  color: #cccccc;
+  cursor: pointer;
+}
+.add-task-button {
+  background-color: #353535;
+  border-radius: 10px;
+  margin: 3px 0px 9px 0px;
+  width: 280px;
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .add-category-button {
   display: flex;
@@ -41,11 +89,11 @@
   cursor: pointer;
   background-color: #252525;
   border-radius: 15px;
-  width: 270px;
+  min-width: 300px;
   height: 70vh;
   margin: 2vh 10px;
 }
-.add-icon {
+.add-category-icon {
   color: #dddddd;
   font-size: 6rem;
   height: 6rem;

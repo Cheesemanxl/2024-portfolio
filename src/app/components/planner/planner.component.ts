@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 export interface Task {
   title: string;
-  desc: string;
+  description: string;
 }
 
 export interface Category {
@@ -26,7 +26,28 @@ export class PlannerComponent {
   categories: Category[] = [
     {
       title: 'Not Started',
-      tasks: []
+      tasks: [
+        {
+          title: 'Lose Swag',
+          description: 'Nooooooo'
+        },
+        {
+          title: 'Be cringe',
+          description: 'Nooooooo'
+        },
+        {
+          title: 'Enforce char limit on task title',
+          description: 'Nooooooo'
+        },
+        {
+          title: 'Dialog for task editing / view',
+          description: 'Nooooooo'
+        },
+        {
+          title: 'Read this super long title name lmao why is it so long',
+          description: 'Nooooooo'
+        },
+      ]
     },
     {
       title: 'Work in Progress',
@@ -35,10 +56,18 @@ export class PlannerComponent {
     {
       title: 'Complete',
       tasks: []
-    },
+    }
   ];
 
   addCategory(): void {
     this.categories.push({title: '', tasks: []});
+  }
+
+  addTask(category: Category): void {
+    category.tasks.push({title: 'New Task', description: 'Default Description'});
+  }
+
+  onTitleInputChange(category: Category, event: any): void {
+    category.title = event.target.value;
   }
 }
