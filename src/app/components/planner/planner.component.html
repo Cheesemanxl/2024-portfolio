@@ -2,7 +2,7 @@
   <div class="scrollable-content">
     <div
       class="category-panel"
-      *ngFor="let category of categories; index as categoryIndex"
+      *ngFor="let category of categories"
     >
       <input
         class="category-title"
@@ -13,7 +13,7 @@
       <div class="task-box">
         <span
           class="task"
-          *ngFor="let task of category.tasks; index as taskIndex"
+          *ngFor="let task of category.tasks"
         >
           <p class="task-title">{{ task.title }}</p>
           <mat-icon
