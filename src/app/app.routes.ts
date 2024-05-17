@@ -9,12 +9,12 @@ export const routes: Routes = [
     component: ColorGridComponent
   },
   {
-    path: 'about-me',
-    component: AboutMeComponent
-  },
-  {
     path: 'planner',
     component: PlannerComponent
+  },
+  {
+    path: 'about-me',
+    component: AboutMeComponent
   },
   {
     path: '**',

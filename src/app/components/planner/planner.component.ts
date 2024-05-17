@@ -60,7 +60,7 @@ export class PlannerComponent {
   ];
 
   addCategory(): void {
-    this.categories.push({title: '', tasks: []});
+    this.categories.push({title: 'New Category', tasks: []});
   }
 
   addTask(category: Category): void {
