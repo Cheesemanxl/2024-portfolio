@@ -15,5 +15,9 @@ export const routes: Routes = [
   {
     path: 'planner',
     component: PlannerComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'about-me'
   }
 ];

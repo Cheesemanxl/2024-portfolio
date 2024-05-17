@@ -12,7 +12,7 @@ export class GridCellComponent {
 
   constructor(public gridService: GridService) {}
 
-  paintTile(event: MouseEvent) {
+  paintTile(event: MouseEvent) : void {
     const element: HTMLElement = (event.target  as HTMLElement);
 
     if(element.style.backgroundColor != this.gridService.color) {
@@ -20,7 +20,7 @@ export class GridCellComponent {
     }
   }
 
-  resetTile(event: MouseEvent) {
+  resetTile(event: MouseEvent) : void {
     const element: HTMLElement = (event.target  as HTMLElement);
 
     if(element.style.backgroundColor != this.gridService.backgroundColor) {
@@ -28,7 +28,7 @@ export class GridCellComponent {
     }
   }
 
-  dragoverTile(event: MouseEvent) {
+  dragoverTile(event: MouseEvent) : void {
     event.preventDefault();
 
     if (this.gridService.leftDragging) {
@@ -38,13 +38,13 @@ export class GridCellComponent {
     }
   }
 
-  onRightClick(event: MouseEvent) {
+  onRightClick(event: MouseEvent) : void {
     event.preventDefault();
 
     this.resetTile(event);
   }
 
-  startDragging(event: MouseEvent) {
+  startDragging(event: MouseEvent) : void {
     if(event.button === 2) {
       this.gridService.rightDragging = true;
     } else {
@@ -52,7 +52,7 @@ export class GridCellComponent {
     }
   }
 
-  stopDragging(event: MouseEvent) {
+  stopDragging(event: MouseEvent) : void {
     if(event.button === 2) {
       this.gridService.rightDragging = false;
     } else {
