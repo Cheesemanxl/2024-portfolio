@@ -1,19 +1,22 @@
-name: Deploy to GitHub Pages
+name: GitHub Pages
 
 on:
   push:
     branches:
       - main
-
-permissions: write-all
+  pull_request:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -22,10 +25,10 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build --base-href=https://cheesemanxl.github.io/2024-portfolio/
+        run: npm run build:prod
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/owens-portfolio/browser
+          publish_dir: ./dist
