@@ -25,9 +25,7 @@ export class GridService {
   }
 
   private updateGridSize() {
-    console.log(window.innerWidth);
     this.gridSize = Math.floor(window.innerWidth / 50);
-    console.log(this.gridSize);
     this.cells = Array(this.gridSize).fill(0);
   }
 }
