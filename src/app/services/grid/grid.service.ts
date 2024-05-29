@@ -1,14 +1,18 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable, ViewChild, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GridService {
+export class GridService implements AfterViewInit {
 
-  gridSize: number = 25;
-  cells: number[] = Array(this.gridSize).fill(0);
+  @ViewChild('gridFrame', { static: false }) gridFrame!: ElementRef;
+
+  gridWidth: number = 0;
+  gridHeight: number = 0;
+  columns: number[] = [];
+  rows: number[] = [];
   color: string = 'white';
   backgroundColor: string = '#181818';
   leftDragging: boolean = false;
@@ -16,7 +20,6 @@ export class GridService {
 
   constructor() {
     this.updateGridSize();
-
     fromEvent(window, 'resize').pipe(
       debounceTime(200)
     ).subscribe(() => {
@@ -24,8 +27,19 @@ export class GridService {
     });
   }
 
-  private updateGridSize() {
-    this.gridSize = Math.floor(window.innerWidth / 50);
-    this.cells = Array(this.gridSize).fill(0);
+  ngAfterViewInit() {
+    console.log("ngAfterViewInit");
+    this.gridWidth = Math.floor(this.gridFrame.nativeElement.offsetWidth / 50);
+    this.gridHeight = Math.floor(this.gridFrame.nativeElement.offsetHeight / 52);
+    this.columns = Array(this.gridWidth).fill(0);
+    this.rows = Array(this.gridHeight).fill(0);
+    this.updateGridSize();
+  }
+
+  private updateGridSize(): void {
+    this.gridWidth = Math.floor(window.innerWidth / 50);
+    this.gridHeight = Math.floor((window.innerHeight - 100) / 52);
+    this.columns = Array(this.gridWidth).fill(0);
+    this.rows = Array(this.gridHeight).fill(0);
   }
 }

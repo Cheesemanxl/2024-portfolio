@@ -9,8 +9,8 @@
       Clear
     </button>
   </div>
-  <div class="grid-frame">
-    <app-grid-column *ngFor="let element of gridService.cells">
+  <div class="grid-frame" #gridFrame>
+    <app-grid-column *ngFor="let element of gridService.columns">
     </app-grid-column>
   </div>
 </div>
