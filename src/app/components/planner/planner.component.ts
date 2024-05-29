@@ -28,11 +28,11 @@ export class PlannerComponent {
       title: 'Not Started',
       tasks: [
         {
-          title: 'Lose Swag',
+          title: 'Color Grid programmatic height',
           description: 'Nooooooo'
         },
         {
-          title: 'Be cringe',
+          title: 'Get Planner actually working fully',
           description: 'Nooooooo'
         },
         {
