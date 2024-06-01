@@ -1,0 +1,47 @@
+<div class="planner-content">
+  <div class="scrollable-content">
+    <div
+      class="category-panel"
+      *ngFor="let category of plannerService.categories"
+    >
+      <input
+        class="category-title"
+        [value]="category.title"
+        (change)="plannerService.onCategoryTitleInputChange(category, $event)"
+        [attr.maxlength]="plannerService.maxCategoryTitleLength"
+      />
+      <hr class="divider" />
+      <div class="task-box">
+        <span
+          class="task"
+          *ngFor="let task of category.tasks"
+        >
+          <p class="task-title">{{ task.title }}</p>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Edit task icon"
+            fontIcon="edit"
+            class="edit-task-icon"
+            (click)="openTaskDialog(task)"
+          ></mat-icon>
+        </span>
+        <div class="add-task-button" (click)="plannerService.addTask(category)">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Add task icon"
+            fontIcon="add"
+            class="add-task-icon"
+          ></mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="add-category-button" (click)="plannerService.addCategory()">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Add category icon"
+        fontIcon="add"
+        class="add-category-icon"
+      ></mat-icon>
+    </div>
+  </div>
+</div>

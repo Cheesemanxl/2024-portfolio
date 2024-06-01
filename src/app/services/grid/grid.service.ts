@@ -14,7 +14,7 @@ export class GridService implements AfterViewInit {
   columns: number[] = [];
   rows: number[] = [];
   color: string = 'white';
-  backgroundColor: string = '#181818';
+  backgroundColor: string = '#101010';
   leftDragging: boolean = false;
   rightDragging: boolean = false;
 
