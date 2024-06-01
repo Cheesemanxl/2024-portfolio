@@ -20,6 +20,7 @@ export class GridService implements AfterViewInit {
 
   constructor() {
     this.updateGridSize();
+
     fromEvent(window, 'resize').pipe(
       debounceTime(200)
     ).subscribe(() => {
@@ -28,7 +29,6 @@ export class GridService implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log("ngAfterViewInit");
     this.gridWidth = Math.floor(this.gridFrame.nativeElement.offsetWidth / 50);
     this.gridHeight = Math.floor(this.gridFrame.nativeElement.offsetHeight / 52);
     this.columns = Array(this.gridWidth).fill(0);
