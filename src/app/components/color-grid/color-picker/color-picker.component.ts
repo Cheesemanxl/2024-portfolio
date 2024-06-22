@@ -22,24 +22,27 @@ export class ColorPickerComponent implements AfterViewInit {
     'cyan',
     'indigo',
     '#B9B9B6',
-    '#101010'
+    '#101010',
   ];
 
   constructor(public gridService: GridService) {}
 
   ngAfterViewInit(): void {
-    const colorOptions: NodeListOf<Element> = document.querySelectorAll('div.color-option');
+    const colorOptions: NodeListOf<Element> =
+      document.querySelectorAll('div.color-option');
 
     colorOptions.forEach((option) => {
-      const isDefaultColorOption: boolean | undefined = option.getAttribute('style')?.includes('background-color: ' + this.gridService.color + ';');
+      const isDefaultColorOption: boolean | undefined = option
+        .getAttribute('style')
+        ?.includes('background-color: ' + this.gridService.color + ';');
 
-      if(isDefaultColorOption) {
+      if (isDefaultColorOption) {
         option.classList.add('selected-option');
       }
     });
   }
 
-  onOptionClicked(e: MouseEvent, color: string): void {
+  onOptionClicked(event: MouseEvent, color: string): void {
     const prevSelection: HTMLElement | null =
       document.querySelector('.selected-option');
 
@@ -47,8 +50,10 @@ export class ColorPickerComponent implements AfterViewInit {
       prevSelection.classList.remove('selected-option');
     }
 
-    (e.target as HTMLElement).classList.add('selected-option');
-
-    this.gridService.color = color;
+    const target = event.target as HTMLElement;
+    if (target) {
+      target.classList.add('selected-option');
+      this.gridService.color = color;
+    }
   }
 }

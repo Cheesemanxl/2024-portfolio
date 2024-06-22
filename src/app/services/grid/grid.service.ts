@@ -36,7 +36,7 @@ export class GridService implements AfterViewInit {
     this.updateGridSize();
   }
 
-  private updateGridSize(): void {
+  updateGridSize(): void {
     this.gridWidth = Math.floor(window.innerWidth / 50);
     this.gridHeight = Math.floor((window.innerHeight - 100) / 52);
     this.columns = Array(this.gridWidth).fill(0);
