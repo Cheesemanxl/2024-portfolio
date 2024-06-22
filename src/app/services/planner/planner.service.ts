@@ -1,7 +1,6 @@
 import { LocalStorageService } from './local-storage.service';
 import { Injectable } from '@angular/core';
 import { Category } from '../../interfaces/category';
-import { Task } from '../../interfaces/task';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ import { Task } from '../../interfaces/task';
 export class PlannerService {
   maxCategoryTitleLength: number = 25;
 
-  categories: Category[] = [];
+  categories: Category[];
 
   constructor(public localStorageService: LocalStorageService) {
     this.categories = this.localStorageService.loadCategories();

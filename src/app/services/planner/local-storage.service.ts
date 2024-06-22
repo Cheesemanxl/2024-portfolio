@@ -7,18 +7,18 @@ import { Category } from '../../interfaces/category';
   providedIn: 'root'
 })
 export class LocalStorageService {
-  private storageKey: string = 'userCategories';
+  storageKey: string = 'userCategories';
 
   saveCategories(categories: Category[]): void {
     localStorage.setItem(this.storageKey, JSON.stringify(categories));
   }
 
   loadCategories(): Category[] {
-    const storedCategories: string | null= localStorage.getItem(this.storageKey);
+    const storedCategories: string | null = localStorage.getItem(this.storageKey);
     return storedCategories ? JSON.parse(storedCategories) : this.getDefaultCategories();
   }
 
-  private getDefaultCategories(): Category[] {
+  getDefaultCategories(): Category[] {
     return [
       {
         title: 'Not Started',
