@@ -13,8 +13,8 @@ describe('LocalStorageService', () => {
 
   it('should save and load categories', () => {
     const categories: Category[] = [
-      { title: 'Test Category', tasks: [] },
-      { title: 'Another Category', tasks: [] }
+      { id: 0, type: 'task', title: 'Test Category', tasks: [] },
+      { id: 1, type: 'task', title: 'Another Category', tasks: [] }
     ];
 
     service.saveCategories(categories);
@@ -27,14 +27,20 @@ describe('LocalStorageService', () => {
     localStorage.removeItem(service.storageKey);
     const defaultCategories = [
       {
+        id: 0,
+        type: 'category',
         title: 'Not Started',
         tasks: []
       },
       {
+        id: 1,
+        type: 'category',
         title: 'Work in Progress',
         tasks: []
       },
       {
+        id: 2,
+        type: 'category',
         title: 'Complete',
         tasks: []
       }

@@ -7,8 +7,8 @@
       <input
         class="category-title"
         [value]="category.title"
-        (change)="plannerService.onCategoryTitleInputChange(category, $event)"
-        [attr.maxlength]="plannerService.maxCategoryTitleLength"
+        (change)="plannerService.onTitleInputChange(category, $event)"
+        [attr.maxlength]="plannerService.maxTitleLength"
       />
       <hr class="divider" />
       <div class="task-box">
@@ -16,13 +16,18 @@
           class="task"
           *ngFor="let task of category.tasks"
         >
-          <p class="task-title">{{ task.title }}</p>
+          <input
+            class="task-title"
+            [value]="task.title"
+            (change)="plannerService.onTitleInputChange(task, $event)"
+            [attr.maxlength]="plannerService.maxTitleLength"
+          />
           <mat-icon
             aria-hidden="false"
             aria-label="Edit task icon"
             fontIcon="edit"
             class="edit-task-icon"
-            (click)="openTaskDialog(task)"
+            (click)="openTaskDialog(category, task)"
           ></mat-icon>
         </span>
         <div class="add-task-button" (click)="plannerService.addTask(category)">
@@ -33,6 +38,14 @@
             class="add-task-icon"
           ></mat-icon>
         </div>
+      </div>
+      <div class="delete-category-button" (click)="openDeleteConfirmDialog(category)">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Delete category icon"
+          fontIcon="delete"
+          class="delete-category-icon"
+        ></mat-icon>
       </div>
     </div>
     <div class="add-category-button" (click)="plannerService.addCategory()">

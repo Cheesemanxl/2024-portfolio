@@ -1,0 +1,83 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.task-title {
+  padding: 0px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #353535;
+  text-align: center;
+  color: #eeeeee;
+  min-width: 80%;
+  height: 40px;
+  font-size: large;
+  text-wrap: nowrap;
+}
+.task-description {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #353535;
+  color: #eeeeee;
+  max-width: 90dvw;
+  min-width: 50dvw;
+  min-height: 25dvh;
+  font-size: large;
+  overflow-y: auto;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: inherit;
+
+  ::ng-deep {
+    .mat-mdc-text-field-wrapper {
+      background-color: #353535;
+      border-radius: 10px;
+    }
+
+    .mat-mdc-form-field-flex {
+      padding: 10px;
+    }
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled)
+      .mdc-text-field__input {
+      color: #eeeeee;
+      caret-color: #eeeeee;
+    }
+
+    textarea.mat-mdc-input-element {
+      min-height: 100px;
+    }
+
+    .mdc-text-field--focused .mdc-line-ripple::after {
+      border-bottom-color: #11a8cd;
+    }
+  }
+}
+::ng-deep .mat-mdc-dialog-panel {
+  border-radius: 150px;
+}
+.actions {
+  display: flex;
+  justify-content: end;
+}
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  min-width: unset;
+}
+.delete-task-icon {
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
