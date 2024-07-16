@@ -8,6 +8,8 @@ describe('PlannerService', () => {
   let localStorageServiceSpy: jasmine.SpyObj<LocalStorageService>;
   let mockCategories: Category[] = [
     {
+      id: 0,
+      type: 'task',
       title: 'Test Category',
       tasks: [],
     },
@@ -46,6 +48,8 @@ describe('PlannerService', () => {
   describe('addTask', () => {
     it('should add a new task to the category', () => {
       const mockCategory: Category = {
+        id: 0,
+        type: 'category',
         title: 'Mock Category',
         tasks: []
       };
@@ -60,13 +64,15 @@ describe('PlannerService', () => {
   describe('onCategoryTitleInputChange', () => {
     it('should push a new category to the array', () => {
       const mockCategory: Category = {
+        id: 0,
+        type: 'category',
         title: 'Mock Category',
         tasks: []
       };
 
       const mockEvent = { target: { value: 'test value' }};
 
-      service.onCategoryTitleInputChange(mockCategory, mockEvent);
+      service.onTitleInputChange(mockCategory, mockEvent);
 
       expect(mockCategory.title).toEqual('test value');
       expect(localStorageServiceSpy.saveCategories).toHaveBeenCalled();
@@ -74,13 +80,15 @@ describe('PlannerService', () => {
 
     it('should push a new category to the array', () => {
       const mockCategory: Category = {
+        id: 0,
+        type: 'category',
         title: 'Mock Category',
         tasks: []
       };
 
       const mockEvent = { target: { value: 'test super long string value that exceeds length limit' }};
 
-      service.onCategoryTitleInputChange(mockCategory, mockEvent);
+      service.onTitleInputChange(mockCategory, mockEvent);
 
       expect(mockCategory.title).toEqual('test super long string va');
       expect(localStorageServiceSpy.saveCategories).toHaveBeenCalled();

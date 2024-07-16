@@ -21,14 +21,20 @@ export class LocalStorageService {
   getDefaultCategories(): Category[] {
     return [
       {
+        id: 0,
+        type: "category",
         title: 'Not Started',
         tasks: []
       },
       {
+        id: 1,
+        type: "category",
         title: 'Work in Progress',
         tasks: []
       },
       {
+        id: 2,
+        type: "category",
         title: 'Complete',
         tasks: []
       }

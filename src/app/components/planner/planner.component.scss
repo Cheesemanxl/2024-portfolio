@@ -26,15 +26,26 @@
 }
 .category-title {
   display: flex;
-  margin: 15px 10px 0px 10px;
+  margin: 15px 10px 0px;
   padding: 0px;
   border-radius: 10px;
-  border-bottom: 0;
-  border-right: 0;
+  border: 0;
   background-color: #353535;
   text-align: center;
   color: #eeeeee;
   min-width: 90%;
+  height: 40px;
+  font-size: large;
+  text-wrap: nowrap;
+}
+.task-title {
+  padding: 0px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #353535;
+  text-align: center;
+  color: #eeeeee;
+  min-width: 80%;
   height: 40px;
   font-size: large;
   text-wrap: nowrap;
@@ -64,6 +75,10 @@
   color: #cccccc;
   margin-right: 10px;
   cursor: pointer;
+}
+.task-box {
+  height: 80%;
+  overflow-y: auto;
 }
 .add-task-icon {
   color: #cccccc;
@@ -98,4 +113,23 @@
   font-size: 6rem;
   height: 6rem;
   width: 6rem;
+}
+.delete-category-button {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  cursor: pointer;
+  color: #dddddd;
+  min-width: 280px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #353535;
+  margin-bottom: 10px;
+}
+.delete-category-button > mat-icon {
+  color: #eeeeee;
+  margin-top: 5px;
+  font-size: 50px;
+  width: 50px;
+  height: 50px;
 }

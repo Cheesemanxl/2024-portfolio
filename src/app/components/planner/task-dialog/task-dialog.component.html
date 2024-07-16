@@ -1,7 +1,30 @@
-<h1 mat-dialog-title>{{ data.title }}</h1>
-<div mat-dialog-content>
-  <p>{{ data.description }}</p>
+<div class="content" mat-dialog-content>
+  <input
+    class="task-title"
+    [value]="data.Task.title"
+    (change)="plannerService.onTitleInputChange(data.Task, $event)"
+    [attr.maxlength]="plannerService.maxTitleLength"
+  />
+  <mat-form-field appearance="fill" class="task-description">
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="4"
+      cdkAutosizeMaxRows="10"
+      [value]="data.Task.description"
+      (change)="plannerService.onDescriptionInputChange(data.Task, $event)"
+      [attr.maxlength]="plannerService.maxDescriptionLength"
+    ></textarea>
+  </mat-form-field>
 </div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+<div class="actions" mat-dialog-actions>
+  <button class="delete-button" color="warn" mat-raised-button mat-dialog-close (click)="openTaskDeleteConfirmDialog(data.Category, data.Task)">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Delete task icon"
+      fontIcon="delete"
+      class="delete-task-icon"
+    ></mat-icon>
+  </button>
+  <button mat-raised-button mat-dialog-close>Close</button>
 </div>
