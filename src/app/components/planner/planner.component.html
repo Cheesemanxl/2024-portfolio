@@ -11,10 +11,16 @@
         [attr.maxlength]="plannerService.maxTitleLength"
       />
       <hr class="divider" />
-      <div class="task-box">
+      <div class="task-box"
+        cdkDropList
+        [id]="category.id.toString()"
+        [cdkDropListData]="category.tasks"
+        [cdkDropListConnectedTo]="getConnectedListIds()"
+        (cdkDropListDropped)="drop($event)">
         <span
           class="task"
           *ngFor="let task of category.tasks"
+          cdkDrag
         >
           <input
             class="task-title"
