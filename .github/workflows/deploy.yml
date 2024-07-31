@@ -19,7 +19,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        continue-on-error: true
 
       - name: Build
         run: npm run build -- --configuration production
@@ -27,6 +26,9 @@ jobs:
       - name: Create CNAME file
         run: echo "CODY-OWENS.com" > ./dist/browser/CNAME
 
+      - name: Remove Base href
+        run: sed '<base href>/d' ./dist/browser/index.html
+        
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
