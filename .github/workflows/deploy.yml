@@ -31,8 +31,14 @@ jobs:
         run: npm run build -- --configuration production
         continue-on-error: true
 
-      - name: Debug - List dist directory
-        run: ls -la /home/runner/work/2024-portfolio/2024-portfolio/dist
+      - name: Debug - List workspace
+        run: ls -R
+
+      - name: Set dist path
+        run: echo "DIST_PATH=$(pwd)/dist" >> $GITHUB_ENV
+
+      - name: Debug - Echo dist path
+        run: echo $DIST_PATH
 
       - name: Create CNAME file
         run: echo "CODY-OWENS.COM" > dist/CNAME
