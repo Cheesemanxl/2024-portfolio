@@ -23,9 +23,6 @@ jobs:
       - name: Build
         run: npm run build -- --configuration production
 
-      - name: Create CNAME file
-        run: echo "CODY-OWENS.com" > ./dist/browser/CNAME
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
