@@ -25,9 +25,6 @@ jobs:
 
       - name: Create CNAME file
         run: echo "CODY-OWENS.com" > ./dist/browser/CNAME
-        
-      - name: Create 404.html from index.html file
-        run: cp ./dist/browser/index.html > ./dist/browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
