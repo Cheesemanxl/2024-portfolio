@@ -32,17 +32,17 @@ jobs:
         continue-on-error: true
 
       - name: Debug - List dist directory
-        run: ls -la dist
+        run: ls -la /home/runner/work/2024-portfolio/2024-portfolio/dist
 
       - name: Create CNAME file
         run: echo "CODY-OWENS.COM" > dist/CNAME
 
       - name: Remove base href
         run: |
-          if [ -f dist/index.html ]; then
-            sed -i 's/<base href="[^"]*">/<base href="\/">/' dist/index.html
+          if [ -f /home/runner/work/2024-portfolio/2024-portfolio/dist/index.html ]; then
+            sed -i 's/<base href="[^"]*">/<base href="\/">/' /home/runner/work/2024-portfolio/2024-portfolio/dist/index.html
           else
-            echo "dist/index.html not found. Please check the build output directory."
+            echo "/home/runner/work/2024-portfolio/2024-portfolio/dist/index.html not found. Please check the build output directory."
             exit 1
           fi
 
