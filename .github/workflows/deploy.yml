@@ -31,11 +31,8 @@ jobs:
         run: npm run build -- --configuration production
         continue-on-error: true
 
-      - name: Debug - List ./dist
-        run: ls ./dist -R
-
       - name: Create CNAME file
-        run: echo "CODY-OWENS.COM" > ./dist/CNAME
+        run: echo "CODY-OWENS.COM" > ./dist/browser/CNAME
 
       - name: Remove base href
         run: |
@@ -50,4 +47,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: ./dist
+          folder: ./dist/browser
