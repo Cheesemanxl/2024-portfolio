@@ -27,7 +27,7 @@ jobs:
         run: echo "CODY-OWENS.com" > ./dist/browser/CNAME
 
       - name: Remove Base href
-        run: sed -i '<base href>/d' ./dist/browser/index.html
+        run: sed -i "<base href>/d" ./dist/browser/index.html
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
