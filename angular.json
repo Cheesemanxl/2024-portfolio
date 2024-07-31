@@ -28,7 +28,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/404.html",
+              "src/web.config",
               "src/CNAME"
             ],
             "styles": [
