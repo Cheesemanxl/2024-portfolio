@@ -15,33 +15,34 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: 'lts/*'
 
-      - name: Debug - List files
-        run: ls -la
+      - name: Debug - Node.js version
+        run: node --version
 
-      - name: Debug - Display package.json
-        run: cat package.json
-
-      - name: Debug - Display package-lock.json
-        run: cat package-lock.json
+      - name: Debug - Angular CLI version
+        run: npx ng version
 
       - name: Install dependencies
-        run: |
-          npm cache clean --force
-          rm -rf node_modules package-lock.json
-          npm install
-        continue-on-error: true
+        run: npm ci
 
       - name: Build
-        run: npm run build -- --prod
-        continue-on-error: true
+        run: npm run build -- --configuration production
+
+      - name: Debug - List dist directory
+        run: ls -la dist
 
       - name: Create CNAME file
         run: echo "CODY-OWENS.COM" > dist/CNAME
 
       - name: Remove base href
-        run: sed -i 's/<base href="[^"]*">/<base href="\/">/' dist/index.html
+        run: |
+          if [ -f dist/index.html ]; then
+            sed -i 's/<base href="[^"]*">/<base href="\/">/' dist/index.html
+          else
+            echo "dist/index.html not found. Please check the build output directory."
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
