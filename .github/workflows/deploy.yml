@@ -31,8 +31,11 @@ jobs:
         run: npm run build -- --configuration production
         continue-on-error: true
 
-      - name: Debug - List workspace
-        run: ls -R
+      - name: Debug - List ./dist
+        run: ls ./dist
+        
+      - name: Debug - List /dist
+        run: ls /dist
 
       - name: Set dist path
         run: echo "DIST_PATH=$(pwd)/dist" >> $GITHUB_ENV
