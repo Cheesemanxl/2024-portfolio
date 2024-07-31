@@ -39,10 +39,10 @@ jobs:
 
       - name: Remove base href
         run: |
-          if [ -f ./dist/index.html ]; then
-            sed -i 's/<base href="[^"]*">/<base href="\/">/' ./dist/index.html
+          if [ -f ./dist/browser/index.html ]; then
+            sed -i 's/<base href="[^"]*">/<base href="\/">/' ./dist/browser/index.html
           else
-            echo "./dist/index.html not found. Please check the build output directory."
+            echo "./dist/browser/index.html not found. Please check the build output directory."
             exit 1
           fi
 
