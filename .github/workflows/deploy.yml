@@ -17,31 +17,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Debug - Node.js version
-        run: node --version
-
       - name: Install dependencies
-        run: |
-          npm cache clean --force
-          rm -rf node_modules package-lock.json
-          npm install
+        run: npm install
         continue-on-error: true
 
       - name: Build
         run: npm run build -- --configuration production
-        continue-on-error: true
 
       - name: Create CNAME file
         run: echo "CODY-OWENS.COM" > ./dist/browser/CNAME
-
-      - name: Remove base href
-        run: |
-          if [ -f ./dist/browser/index.html ]; then
-            sed -i 's/<base href="[^"]*">/<base href="\/">/' ./dist/browser/index.html
-          else
-            echo "./dist/browser/index.html not found. Please check the build output directory."
-            exit 1
-          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
