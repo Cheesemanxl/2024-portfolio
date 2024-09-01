@@ -5,12 +5,17 @@ import { PlannerComponent } from './components/planner/planner.component';
 
 export const routes: Routes = [
   {
-    path: 'color-grid',
-    component: ColorGridComponent
-  },
-  {
-    path: 'planner',
-    component: PlannerComponent
+    path: 'web-dev',
+    children: [
+      {
+        path: 'color-grid',
+        component: ColorGridComponent
+      },
+      {
+        path: 'planner',
+        component: PlannerComponent
+      }
+    ]
   },
   {
     path: 'about-me',

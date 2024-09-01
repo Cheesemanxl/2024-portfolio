@@ -22,7 +22,7 @@ export class ColorPickerComponent implements AfterViewInit {
     'cyan',
     'indigo',
     '#B9B9B6',
-    '#101010',
+    '#303030',
   ];
 
   constructor(public gridService: GridService) {}
