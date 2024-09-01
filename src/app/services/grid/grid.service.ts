@@ -14,7 +14,7 @@ export class GridService implements AfterViewInit {
   columns: number[] = [];
   rows: number[] = [];
   color: string = 'white';
-  backgroundColor: string = '#101010';
+  backgroundColor: string = '#303030';
   leftDragging: boolean = false;
   rightDragging: boolean = false;
 
@@ -37,7 +37,7 @@ export class GridService implements AfterViewInit {
   }
 
   updateGridSize(): void {
-    this.gridWidth = Math.floor(window.innerWidth / 50);
+    this.gridWidth = Math.floor(window.innerWidth / 56);
     this.gridHeight = Math.floor((window.innerHeight - 100) / 52);
     this.columns = Array(this.gridWidth).fill(0);
     this.rows = Array(this.gridHeight).fill(0);
